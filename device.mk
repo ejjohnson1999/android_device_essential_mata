@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+#GAPPS
+GAPPS_VARIANT := pico
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/essential/mata/overlay
 PRODUCT_ENFORCE_RRO_TARGETS := \
@@ -437,3 +440,6 @@ PRODUCT_PACKAGES += \
     wificond \
     wpa_supplicant \
     wpa_supplicant.conf
+
+#GAPPS
+$(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
