@@ -111,6 +111,7 @@ PRODUCT_COPY_FILES += \
     device/essential/mata/configs/camera/imx258_mono_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx258_mono_chromatix.xml
 
 PRODUCT_PACKAGES += \
+    android.frameworks.displayservice@1.0_32 \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     camera.device@3.2-impl \
@@ -164,7 +165,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service
+    android.hardware.biometrics.fingerprint@2.1
 
 PRODUCT_COPY_FILES += \
     device/essential/mata/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
@@ -414,7 +415,7 @@ $(call inherit-product, build/target/product/verity.mk)
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-service.lineage
+    android.hardware.vibrator@1.1-service.mata
 
 # VNDK
 PRODUCT_PACKAGES += vndk-sp

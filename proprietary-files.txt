@@ -83,7 +83,6 @@ vendor/lib/libmmcamera_chromaflash_lib.so
 vendor/lib/libmmcamera_csidtg.so
 vendor/lib/libmmcamera_dbg.so
 vendor/lib/libmmcamera_depth_map.so
-vendor/lib/libmmcamera_depth_map.so
 vendor/lib/libmmcamera_dummyalgo.so
 vendor/lib/libmmcamera_eebinparse.so
 vendor/lib/libmmcamera_eeprom_util.so
@@ -101,7 +100,6 @@ vendor/lib/libmmcamera_imx258_mono_gt24c32_eeprom.so
 vendor/lib/libmmcamera_imx258_mono.so
 vendor/lib/libmmcamera_imx258.so
 vendor/lib/libmmcamera_imx268.so
-vendor/lib/libmmcamera_interface.so
 vendor/lib/libmmcamera_interface.so
 vendor/lib/libmmcamera_isp_abf48.so
 vendor/lib/libmmcamera_isp_aec_bg_stats47.so
@@ -389,7 +387,9 @@ vendor/lib64/hw/vendor.essential.hardware.sidecar@1.0-impl.so
 vendor/lib64/vendor.essential.hardware.sidecar@1.0_vendor.so
 
 # CNE
+etc/permissions/cneapiclient.xml
 etc/permissions/com.quicinc.cne.xml
+framework/cneapiclient.jar
 framework/com.quicinc.cne.api-V1.0-java.jar
 framework/com.quicinc.cne.jar
 -priv-app/CNEService/CNEService.apk
@@ -450,7 +450,6 @@ vendor/lib64/libdpmqmihal.so
 # DRM
 vendor/bin/qseecomd
 vendor/lib/libcppf.so
-vendor/lib/liboemcrypto.so
 vendor/lib/libQSEEComAPI.so
 vendor/lib/libsdedrm.so
 vendor/lib/libtzdrmgenprov.so
@@ -506,7 +505,8 @@ vendor/lib/rfsa/adsp/libvpp_svc_skel.so
 vendor/lib64/libsdsprpc.so
 
 # Fingerprint
-vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
+vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service:vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.mata
+vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc:vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.mata.rc|5160525a496d0f77e11ec475b343080d52ebea71
 
 # Gatekeeper
 vendor/lib/hw/gatekeeper.msm8998.so
@@ -516,7 +516,6 @@ vendor/lib64/hw/gatekeeper.msm8998.so
 lib/vendor.qti.gnss@1.0.so
 lib64/vendor.qti.gnss@1.0.so
 vendor/bin/hw/vendor.qti.gnss@1.0-service
-vendor/bin/garden_app
 vendor/bin/loc_launcher
 vendor/bin/lowi-server
 vendor/bin/slim_daemon
@@ -525,16 +524,13 @@ vendor/etc/init/vendor.qti.gnss@1.0-service.rc
 vendor/lib/hw/vendor.qti.gnss@1.0-impl.so
 vendor/lib/vendor.qti.gnss@1.0_vendor.so
 vendor/lib64/hw/vendor.qti.gnss@1.0-impl.so
-vendor/lib64/lib_drplugin_server.so
 -vendor/lib64/libloc_api_v02.so
 vendor/lib64/libloc_ds_api.so
-vendor/lib64/libalarmservice_jni.so
 vendor/lib64/libdataitems.so
 vendor/lib64/libdrplugin_client.so
 vendor/lib64/libDRPlugin.so
 vendor/lib64/libevent_observer.so
 vendor/lib64/libflp.so
-vendor/lib64/libgdtap.so
 vendor/lib64/libgeofence.so
 vendor/lib64/libizat_client_api.so
 vendor/lib64/libizat_core.so
@@ -543,8 +539,6 @@ vendor/lib64/libloc_externalDr.so
 vendor/lib64/liblocationservice_glue.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/liblowi_client.so
-vendor/lib64/liblowi_wifihal.so
-vendor/lib64/libquipc_os_api.so
 vendor/lib64/libslimclient.so
 vendor/lib64/libulp2.so
 vendor/lib64/libxtadapter.so
@@ -643,9 +637,6 @@ vendor/lib64/libhdr_tm.so
 -priv-app/HotwordEnrollmentTGoogleWCD9335/HotwordEnrollmentTGoogleWCD9335.apk;PRESIGNED
 -priv-app/HotwordEnrollmentXGoogleWCD9335/HotwordEnrollmentXGoogleWCD9335.apk;PRESIGNED
 
-# IPA
-vendor/bin/ipacm-diag
-
 # Keystore
 vendor/lib/hw/keystore.msm8998.so
 vendor/lib64/hw/keystore.msm8998.so
@@ -667,10 +658,10 @@ vendor/lib64/libgcs.so
 vendor/lib64/vendor.qti.voiceprint@1.0.so
 
 # Machine Learning
--vendor/etc/lm/ReferenceFeature.xml
-vendor/lib64/liblearningmodule.so
-vendor/lib64/libmeters.so
-vendor/lib64/libreffeature.so
+-vendor/etc/lm/ReferenceFeature.xml|52ea5bff6e8e3248d9ed88406158edce735609d3
+vendor/lib64/liblearningmodule.so|1c02d6c529bbc535ec62beb8eaf5e79408b66c3b
+vendor/lib64/libmeters.so|4deb6be7dbdf5aa7745d17f27e91015222b4a604
+vendor/lib64/libreffeature.so|905c7a60ded2e1c6f2f55a7f9994b9c51aaeb84d
 
 # Media
 vendor/lib/libAlacSwDec.so
@@ -777,7 +768,6 @@ vendor/lib/libqmi_client_qmux.so
 -vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
-vendor/lib/libquipc_os_api.so
 vendor/lib/libsmemlog.so
 vendor/lib64/libdiag.so
 -vendor/lib64/libdsi_netctrl.so
@@ -794,17 +784,18 @@ vendor/lib64/libqmi_client_qmux.so
 -vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
-vendor/lib64/libquipc_os_api.so
 vendor/lib64/libsmemlog.so
 
 # Quick charge
 vendor/bin/hvdcp_opti
 
 # Radio
-framework/qti-telephony-common.jar
+-app/embms/embms.apk:vendor/app/embms/embms.apk
+etc/permissions/embms.xml:vendor/etc/permissions/embms.xml|a2137c642ce17e9796872ddb8390162d1324c6c9
+framework/embmslibrary.jar:vendor/framework/embmslibrary.jar
+framework/qti-telephony-common.jar|e080a3e800bf43c894c6653954e2f4e1415e645c
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -vendor/app/datastatusnotification/datastatusnotification.apk
--vendor/app/embms/embms.apk
 -vendor/app/QtiTelephonyService/QtiTelephonyService.apk
 -vendor/app/radioconfig/radioconfig.apk
 -vendor/app/SVIService/SVIService.apk
@@ -819,12 +810,10 @@ vendor/bin/rmt_storage
 vendor/bin/tftp_server
 vendor/etc/data/dsi_config.xml
 vendor/etc/data/netmgr_config.xml
-vendor/etc/permissions/embms.xml
 vendor/etc/permissions/qcrilhook.xml
 vendor/etc/permissions/radioconfig.xml
 vendor/etc/permissions/radioconfiginterface.xml
 vendor/etc/permissions/telephonyservice.xml
-vendor/framework/embmslibrary.jar
 vendor/framework/qcrilhook.jar
 vendor/framework/QtiTelephonyServicelibrary.jar
 vendor/lib/libmdmdetect.so
@@ -833,7 +822,6 @@ vendor/lib/libpdnotifier.so
 -vendor/lib/libqmiservices.so
 vendor/lib/vendor.qti.hardware.radio.am@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.radio.atcmdfwd@1.0_vendor.so
-vendor/lib/vendor.qti.hardware.radio.ims@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.radio.lpa@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.radio.qcrilhook@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.radio.qtiradio@1.0_vendor.so
@@ -857,7 +845,6 @@ vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libtsext_inf.so
 vendor/lib64/vendor.qti.hardware.radio.am@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0_vendor.so
-vendor/lib64/vendor.qti.hardware.radio.ims@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.radio.lpa@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.radio.qcrilhook@1.0_vendor.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@1.0_vendor.so
@@ -867,13 +854,13 @@ vendor/lib64/vendor.qti.hardware.radio.uim@1.0_vendor.so
 vendor/radio/qcril_database/qcril.db
 
 # Radio - IMS
+etc/permissions/qti-vzw-ims-internal.xml:vendor/etc/permissions/qti-vzw-ims-internal.xml|89409c5f355acbd65a45b13f12e1baafb13baf46
 lib/com.qualcomm.qti.imscmservice@1.0.so
 lib/lib-imscamera.so
 lib/lib-imsvideocodec.so
 lib/lib-imsvtextutils.so
 lib/lib-imsvtutils.so
 lib/libdiag_system.so
-lib/libimscamera_jni.so:vendor/lib/libimscamera_jni.so
 lib/librcc.so
 lib/vendor.qti.imsrtpservice@1.0.so
 lib64/com.qualcomm.qti.imscmservice@1.0.so
@@ -883,7 +870,6 @@ lib64/lib-imsvt.so
 lib64/lib-imsvtextutils.so
 lib64/lib-imsvtutils.so
 lib64/libdiag_system.so
-lib64/libimscamera_jni.so:vendor/lib64/libimscamera_jni.so
 lib64/librcc.so
 lib64/vendor.qti.imsrtpservice@1.0.so
 -vendor/app/ims/ims.apk
@@ -891,7 +877,6 @@ vendor/bin/ims_rtp_daemon
 vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
 vendor/bin/imsrcsd
-vendor/etc/permissions/qti-vzw-ims-internal.xml
 vendor/framework/qti-vzw-ims-internal.jar
 vendor/lib/com.qualcomm.qti.imscmservice@1.0_vendor.so
 vendor/lib/lib-imscmservice.so
@@ -903,7 +888,9 @@ vendor/lib/lib-rtpcommon.so
 vendor/lib/lib-rtpcore.so
 vendor/lib/lib-rtpdaemoninterface.so
 vendor/lib/lib-rtpsl.so
-vendor/lib/libimsmedia_jni.so
+lib/libimscamera_jni.so:vendor/lib/libimscamera_jni.so
+lib/libimsmedia_jni.so:vendor/lib/libimsmedia_jni.so
+vendor/lib/vendor.qti.hardware.radio.ims@1.0_vendor.so
 vendor/lib/vendor.qti.imsrtpservice@1.0_vendor.so
 vendor/lib/vendor.qti.imsrtpservice@1.0-service-Impl.so
 vendor/lib64/com.qualcomm.qti.imscmservice@1.0_vendor.so
@@ -918,7 +905,9 @@ vendor/lib64/lib-rtpcore.so
 vendor/lib64/lib-rtpdaemoninterface.so
 vendor/lib64/lib-rtpsl.so
 vendor/lib64/lib-uceservice.so
-vendor/lib64/libimsmedia_jni.so
+lib64/libimscamera_jni.so:vendor/lib64/libimscamera_jni.so
+lib64/libimsmedia_jni.so:vendor/lib64/libimsmedia_jni.so
+vendor/lib64/vendor.qti.hardware.radio.ims@1.0_vendor.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0_vendor.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
 
