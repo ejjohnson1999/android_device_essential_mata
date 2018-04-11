@@ -22,6 +22,9 @@ DEVICE_PACKAGE_OVERLAYS += device/essential/mata/overlay
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
 
+# Properties
+-include device/essential/mata/vendor_prop.mk
+
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 560dpi
@@ -199,6 +202,7 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
+    android.hidl.base@1.0_system \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0-java
 
@@ -214,7 +218,6 @@ PRODUCT_PACKAGES += \
     init.mata.rc \
     init.mata.usb.rc \
     init.qcom.devstart.sh \
-    init.qcom.early_boot.sh \
     init.qcom.power.sh \
     init.qcom.post_boot.sh \
     init.qcom.sensors.sh \
@@ -288,7 +291,7 @@ PRODUCT_PACKAGES += \
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    device/essential/mata/configs/privapp-permissions-mata.xml:system/etc/permissions/privapp-permissions-mata.xml \
+    device/essential/mata/configs/privapp-permissions-mata.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/privapp-permissions-mata.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -334,8 +337,8 @@ PRODUCT_COPY_FILES += \
 
 # QCOM
 PRODUCT_COPY_FILES += \
-    device/essential/mata/configs/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml \
-    device/essential/mata/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
+    device/essential/mata/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/privapp-permissions-qti.xml \
+    device/essential/mata/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/qti_whitelist.xml
 
 # QMI
 PRODUCT_PACKAGES += \
