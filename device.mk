@@ -143,6 +143,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=8m
 
+# Device settings
+PRODUCT_PACKAGES += \
+    DeviceSettings
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
@@ -159,6 +163,7 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libqdMetaData.system \
     libtinyxml \
+    libvulkan \
     memtrack.msm8998
 
 # DRM
@@ -177,22 +182,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
-
-# GPS
-PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl-qti \
-    android.hardware.gnss@1.0-service-qti \
-    libgnss \
-    libgnsspps
-
-PRODUCT_PACKAGES += \
-    apdr.conf \
-    flp.conf \
-    gps.conf \
-    izat.conf \
-    lowi.conf \
-    sap.conf \
-    xtwifi.conf
 
 # Health
 PRODUCT_PACKAGES += \
@@ -419,7 +408,11 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.1-service.mata
 
 # VNDK
-PRODUCT_PACKAGES += vndk-sp
+# Update this list with what each blob is actually for
+# libicuuc: vendor.qti.hardware.qteeconnector@1.0-impl
+PRODUCT_PACKAGES += \
+    libicuuc.vendor \
+    vndk_package
 
 # Weaver
 PRODUCT_PACKAGES += \
