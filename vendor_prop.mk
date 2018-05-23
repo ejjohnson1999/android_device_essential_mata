@@ -69,6 +69,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/platform/soc/1da4000.ufshc/by-name/frp
 
+# HDR
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qcom.hdr.config=/vendor/etc/hdr_tm_config.xml
+
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.nfc.smartcard.config=SIM1,eSE1 \
@@ -81,7 +85,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.cne.feature=1 \
-    persist.dpm.feature=0 \
     persist.data.df.dev_name=rmnet_usb0 \
     persist.data.df.iwlan_mux=9 \
     persist.data.iwlan.enable=true \
@@ -94,7 +97,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.data_con_rprt=true \
     persist.rcs.supported=1 \
     persist.rmnet.data.enable=true \
-    persist.vendor.dpm.feature=11 \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.rat_on=combine \
     persist.vendor.radio.sib16_support=1 \
@@ -123,6 +125,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config.extra=none
 
 # VNDK
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.vndk.version=27
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.vndk.version=27.1.0
 

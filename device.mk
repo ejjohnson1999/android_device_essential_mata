@@ -30,6 +30,10 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 560dpi
 PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
+# Additional native libraries
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
@@ -183,6 +187,10 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
 
+# HDR
+PRODUCT_COPY_FILES += \
+    device/essential/mata/configs/hdr_tm_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hdr_tm_config.xml
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@1.0-impl \
@@ -225,6 +233,10 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
 
+# IRQ Balancing
+PRODUCT_COPY_FILES += \
+    device/essential/mata/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
+
 # IRSC
 PRODUCT_COPY_FILES += \
     device/essential/mata/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
@@ -237,6 +249,10 @@ PRODUCT_PACKAGES += \
 # Led packages
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.mata
+
+# LiveDisplay native
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@1.0-service-sdm
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -308,6 +324,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level-0.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_0_3.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute-0.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
@@ -347,9 +364,7 @@ PRODUCT_PACKAGES += \
 # Recovery
 PRODUCT_COPY_FILES += \
     device/essential/mata/recovery/root/init.recovery.mata.rc:root/init.recovery.mata.rc \
-    device/essential/mata/recovery/root/init.recovery.mata.usb.rc:root/init.recovery.mata.usb.rc \
-    device/essential/mata/recovery/root/init.recovery.usb.configfs.rc:root/init.recovery.usb.configfs.rc \
-    device/essential/mata/recovery/root/init.recovery.usb.rc:root/init.recovery.usb.rc
+    device/essential/mata/recovery/root/init.recovery.mata.usb.rc:root/init.recovery.mata.usb.rc
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -375,6 +390,10 @@ PRODUCT_BOOT_JARS += \
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
+
+# TextClassifier
+PRODUCT_PACKAGES += \
+    textclassifier.smartselection.bundle1
 
 # Thermal
 PRODUCT_PACKAGES += \
